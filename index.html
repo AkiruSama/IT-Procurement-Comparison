@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Vendor Price Comparison</title>
+    <title>IT Procurement Price Comparison</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -45,14 +45,14 @@
                     <i data-lucide="file-text" class="text-white w-6 h-6"></i>
                 </div>
                 <div>
-                    <h1 class="font-bold text-lg tracking-wide uppercase">Procurement Support</h1>
+                    <h1 class="font-bold text-lg tracking-wide uppercase">IT Support Procurement</h1>
                     <p class="text-[10px] text-slate-400 tracking-[0.2em] uppercase">Vendor Price Analysis</p>
                 </div>
             </div>
             <div class="flex gap-4">
                 <button onclick="generatePDF()" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded shadow-sm font-semibold text-sm transition-all active:scale-95">
                     <i data-lucide="mail" class="w-4 h-4"></i>
-                    Export for Email (PDF)
+                    Export (PDF)
                 </button>
             </div>
         </div>
@@ -333,7 +333,7 @@
             doc.setFont('helvetica', 'normal');
             doc.setFontSize(8);
             doc.setTextColor(100);
-            doc.text('Procurement / IT Support Officer - Generated via Digital System', 14, finalY + 5);
+            doc.text('IT Support Engineer', 14, finalY + 5);
 
             doc.save(`Price_Comparison_${reportTitle.replace(/\s+/g, '_')}.pdf`);
         }
