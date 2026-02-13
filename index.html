@@ -132,6 +132,8 @@
                 addRow();
             }
             updateLowestPrice();
+        // Auto update footer year
+        document.getElementById('footerYear').textContent = new Date().getFullYear();
         }
 
         function syncItemNames() {
@@ -242,17 +244,6 @@
             const reportTitle = document.getElementById('reportTitle').value || 'UNSPECIFIED ITEM';
             const preparedBy = document.getElementById('preparedBy').value || 'N/A';
             const dateStr = new Date().toLocaleDateString('en-MY', { day: '2-digit', month: '2-digit', year: 'numeric' });
-
-            //required to fill
-            if (!reportTitle) {
-                showToast("Please enter the Item Name.");
-                return;
-            }
-            
-            if (!preparedBy) {
-                showToast("Please select the IT Support Engineer.");
-                return;
-            }
             
             doc.setFontSize(18);
             doc.setFont('helvetica', 'bold');
@@ -389,31 +380,7 @@
         }
 
         window.onload = init;
-
-        function showToast(message) {
-        const toast = document.getElementById("toast");
-        const toastMsg = document.getElementById("toastMessage");
-    
-        toastMsg.textContent = message;
-        toast.classList.remove("hidden");
-    
-        lucide.createIcons();
-    
-        setTimeout(() => {
-            toast.classList.add("hidden");
-        }, 3000);
-    }
-
     </script>
-
-<!-- Toast Notification -->
-<div id="toast"
-     class="fixed top-6 right-6 hidden z-50">
-    <div class="official-header text-white px-6 py-4 rounded shadow-lg flex items-center gap-3 border border-white/10">
-        <i data-lucide="alert-circle" class="w-5 h-5 text-blue-400"></i>
-        <span id="toastMessage" class="text-sm font-medium"></span>
-    </div>
-</div>
     
     <!-- Footer -->
 <footer class="official-header text-white mt-16">
