@@ -376,7 +376,7 @@
             doc.setTextColor(100);
             doc.text('IT Support Engineer', 14, finalY + 5);
 
-            doc.save(`Price Comparison ${reportTitle.replace(/[_\s]+/g, ' ') || 'Report'}.pdf`);
+            doc.save(`Price Comparison ${reportTitle.replace(/_/g, ' ') || 'Report'}.pdf`);
         }
 
         window.onload = init;
