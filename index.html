@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Vendor Price Comparison</title>
+    <title>IT Vendor Price Comparison</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -52,14 +52,14 @@
                     <i data-lucide="file-text" class="text-white w-6 h-6"></i>
                 </div>
                 <div>
-                    <h1 class="font-bold text-lg tracking-wide uppercase">Procurement Support</h1>
-                    <p class="text-[10px] text-slate-400 tracking-[0.2em] uppercase">Vendor Price Analysis</p>
+                    <h1 class="font-bold text-lg tracking-wide uppercase">IT Procurement Support</h1>
+                    <p class="text-[10px] text-slate-400 tracking-[0.2em] uppercase">IT Vendor Price Analysis</p>
                 </div>
             </div>
             <div class="flex gap-4">
                 <button onclick="generatePDF()" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded shadow-sm font-semibold text-sm transition-all active:scale-95">
                     <i data-lucide="mail" class="w-4 h-4"></i>
-                    Export for Email (PDF)
+                    Export PDF
                 </button>
             </div>
         </div>
@@ -75,7 +75,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="space-y-2">
-                    <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">Project / Item Subject</label>
+                    <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">Item Name</label>
                     <input type="text" id="reportTitle" oninput="syncItemNames()" placeholder="INSERT ITEM NAME" 
                            class="w-full p-3 bg-slate-50 border border-slate-200 rounded text-sm font-medium" value="">
                 </div>
@@ -154,7 +154,7 @@
             row.innerHTML = `
                 <td class="p-4 text-xs font-bold text-slate-400 text-center">${rowCount}</td>
                 <td class="p-4">
-                    <input type="text" placeholder="INSERT COMPANY NAME HERE" class="company-input w-full bg-transparent font-bold text-slate-900 border-none p-0 focus:ring-0" value="${data.company.toUpperCase()}" oninput="this.value = this.value.toUpperCase(); updateLowestPrice()">
+                    <input type="text" placeholder="INSERT VENDOR NAME HERE" class="company-input w-full bg-transparent font-bold text-slate-900 border-none p-0 focus:ring-0" value="${data.company.toUpperCase()}" oninput="this.value = this.value.toUpperCase(); updateLowestPrice()">
                     <input type="text" placeholder="INSERT ITEM NAME" class="item-input w-full bg-transparent text-xs text-slate-500 border-none p-0 focus:ring-0 mt-1" value="${currentItemTitle}" readonly>
                 </td>
                 <td class="p-4 text-right">
@@ -244,7 +244,7 @@
 
             doc.setFontSize(18);
             doc.setFont('helvetica', 'bold');
-            doc.text('PRICE COMPARISON REPORT', 14, 20);
+            doc.text('PRICE COMPARISON', 14, 20);
             
             doc.setFontSize(9);
             doc.setFont('helvetica', 'normal');
@@ -371,7 +371,7 @@
             doc.setFont('helvetica', 'normal');
             doc.setFontSize(8);
             doc.setTextColor(100);
-            doc.text('Procurement / IT Support Officer - Generated via Digital System', 14, finalY + 5);
+            doc.text('IT Support Engineer', 14, finalY + 5);
 
             doc.save(`Price_Comparison_${reportTitle.replace(/\s+/g, '_') || 'Report'}.pdf`);
         }
